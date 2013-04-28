@@ -1,0 +1,35 @@
+
+<center>
+<%= form_for @userdetail, :url => login_path(@userdetail) do |f| %>
+
+<h2>Sign In</h2>
+  <table width='30%'>
+    <tr>
+      <td align='right'>
+        <%= f.label :userid %> :
+     </td>
+     <td align='left'>
+        <%= f.text_field :userid %>
+    </td>
+  </tr>
+  <tr>
+    <td align='right'>
+      <%= f.label :password %> :
+    </td>
+    <td align='left'>
+    <%= f.password_field :password%>
+  </td>
+  </tr>
+  <tr>
+    <td colspan='2' align='center'>
+      <br/>
+      <%= f.submit 'Login' %>
+    </td>
+  </tr>
+</table>
+
+  <div style='color:red;'>
+    <%= flash[:message] %>
+  </div>
+<% end %>
+</center>
