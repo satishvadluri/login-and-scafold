@@ -34,4 +34,22 @@ class HomeController < ApplicationController
 	def index
 			@userdetail = Userdetail.new
 	end
+
+	def gotoSignup
+		@userdetail = Userdetail.new
+        render :action => :register
+	end
+
+	def doRegister
+		#include ActiveRecord::Validations
+  		#validates :userid, :length => { :minimum => 2 }	
+  		@userdetail =Userdetail.new(params[:userdetail])
+  		 if @userdetail.save
+  		 	        render :text => "user has been created successfully...."
+  		 	else
+  		 			render :text => "user cretation failed"
+  		 end
+
+	end
+
 end

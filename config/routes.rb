@@ -68,5 +68,8 @@ ScaffoldApp::Application.routes.draw do
   # match '/signup',  to: 'users#new'
    match '/signin',  to: 'Home#gotoHome'
    match '/login',  to: 'Home#doLogin'
+   match '/signup', to: 'Home#gotoSignup'
+   match '/createuser', to: 'Home#doRegister'
+   #match '/gotoUsers', to: ''
   # match '/signout', to: 'sessions#destroy', via: :delete
 end

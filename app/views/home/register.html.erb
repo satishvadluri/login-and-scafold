@@ -1,0 +1,73 @@
+<%= javascript_include_tag 'jquery', 'rails', 'rails.validations' %>
+
+<center>
+	<h2>New User Registration </h2>
+
+<%= form_for @userdetail, :validate => true , :url => createuser_path(@userdetail) do |f| %>
+
+
+  <table width='30%'>
+    <tr>
+      <td align='right'>
+        <%= f.label :firstname %> :
+     </td>
+     <td align='left'>
+        <%= f.text_field :firstname, :validate => true  %>
+    </td>
+  </tr>
+  <tr>
+    <td align='right'>
+      <%= f.label :lastname %> :
+    </td>
+    <td align='left'>
+    <%= f.text_field :lastname, :validate => true %>
+  </td>
+  </tr>
+  <tr>
+    <td align='right'>
+      <%= f.label :userid %> :
+    </td>
+    <td align='left'>
+    <%= f.text_field :userid,  :validate => true %>
+  </td>
+  </tr>
+  <tr>
+    <td align='right'>
+      <%= f.label :password %> :
+    </td>
+    <td align='left'>
+    <%= f.password_field :password, :id => 'confpassword' %>
+  </td>
+  </tr>
+   <tr>
+    <td align='right'>
+      <%= f.label :'Confirm password' %> :
+    </td>
+    <td align='left'>
+    <%= f.password_field :password%>
+  </td>
+  </tr>
+  <tr>
+    <td align='right'>
+      <%= f.label :Enable %> :
+    </td>
+    <td align='left'>
+    <%= f.select :enabled, [['Yes','Y'],['No','N']] %>
+
+  </td>
+  </tr>
+  <tr>
+    <td colspan='2' align='center'>
+      <br/>
+      <%= f.submit 'Register' %>
+    </td>
+  </tr>
+</table>
+
+
+ <% @userdetail.errors.full_messages.each do |msg| %>
+      <p><%= msg %></p>
+    <% end %>
+  
+<% end %>
+</center>
