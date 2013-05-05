@@ -1,0 +1,28 @@
+%center
+  %br
+    %br
+      %br
+        = form_for @userdetail, :url => login_path(@userdetail) do |f|
+          %h4 Sign In
+          %table{:width => "30%"}
+            %tr
+              %td{:align => "right"}
+                = f.label :userid
+                \:
+              %td{:align => "left"}
+                = f.text_field :userid
+            %tr
+              %td{:align => "right"}
+                = f.label :password
+                \:
+              %td{:align => "left"}
+                = f.password_field :password
+            %tr
+              %td{:align => "center", :colspan => "2"}
+                %br/
+                = f.submit 'Login', class: "btn btn-small btn-primary"
+          %div
+            %p
+              New user #{link_to 'Sign Up', signup_path} here
+          %div{:style => "color:red;"}
+            = flash[:message]

@@ -1,0 +1,50 @@
+= javascript_include_tag 'jquery', 'rails', 'rails.validations'
+%center
+  %br
+    %br
+      %br
+        %h4 New User Registration
+        = form_for @userdetail, :validate => true , :url => createuser_path(@userdetail) do |f|
+          %table{:align => "center", :width => "100%"}
+            %tr
+              %td{:align => "right"}
+                = f.label :firstname
+                \:
+              %td{:align => "left"}
+                = f.text_field :firstname, :validate => true
+            %tr
+              %td{:align => "right"}
+                = f.label :lastname
+                \:
+              %td{:align => "left"}
+                = f.text_field :lastname, :validate => true
+            %tr
+              %td{:align => "right"}
+                = f.label :userid
+                \:
+              %td{:align => "left"}
+                = f.text_field :userid,  :validate => true
+            %tr
+              %td{:align => "right"}
+                = f.label :password
+                \:
+              %td{:align => "left"}
+                = f.password_field :password, :validate => true
+            %tr
+              %td{:align => "right"}
+                = f.label :'Confirm password'
+                \:
+              %td{:align => "left"}
+                = f.password_field :password_confirmation, :validate => true
+            %tr
+              %td{:align => "right"}
+                = f.label :Enable
+                \:
+              %td{:align => "left"}
+                = f.select :enabled, [['Yes','Y'],['No','N']]
+            %tr
+              %td{:align => "center", :colspan => "2"}
+                %br/
+                = f.submit 'Register', class: "btn btn-small btn-primary"
+          - @userdetail.errors.full_messages.each do |msg|
+            %p= msg
